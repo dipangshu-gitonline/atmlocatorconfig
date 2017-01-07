@@ -1,0 +1,16 @@
+server:
+      port: 2001
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${vcap.services.eureka-service.credentials.uri:http://127.0.0.1:8761}/eureka/
+    lease.duration: 5
+    fetch-registry: true
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+
+spring:
+  application:
+    name: atmlocatorService
