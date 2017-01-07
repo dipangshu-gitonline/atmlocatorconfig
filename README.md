@@ -1,0 +1,3 @@
+# atmlocatorconfig
+
+ddd
