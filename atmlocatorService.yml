@@ -1,16 +1,17 @@
-server:
-      port: 2001
+server.port= 2001
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: ${vcap.services.eureka-service.credentials.uri:http://127.0.0.1:8761}/eureka/
-    lease.duration: 5
-    fetch-registry: true
-  instance:
-    leaseRenewalIntervalInSeconds: 1
-    leaseExpirationDurationInSeconds: 2
+spring.application.name=atmlocatorService
 
-spring:
-  application:
-    name: atmlocatorService
+eureka.client.serviceUrl.defaultZone: ${vcap.services.eureka-service.credentials.uri:http://127.0.0.1:8761}/eureka/}
+eureka.client.lease.duration: 5
+eureka.client.fetch-registry: true
+eureka.instance.leaseRenewalIntervalInSeconds: 1
+eureka.instance.leaseExpirationDurationInSeconds: 2
+eureka.instance.nonSecurePort: 80
+eureka.instance.hostname: ${vcap.application.uris[0]}
+eureka.instance.instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}      
+
+
+
+
+ 
